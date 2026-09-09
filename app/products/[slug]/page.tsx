@@ -73,7 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             ) : null}
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/request-a-quote" className="inline-flex min-h-12 items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-hover focus-visible:outline-primary">
+              <Link href={`/request-a-quote?product=${product.slug}`} className="inline-flex min-h-12 items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-hover focus-visible:outline-primary">
                 Request a Quote <span className="ml-3" aria-hidden="true">↗</span>
               </Link>
               <Link href="/products" className="inline-flex min-h-12 items-center justify-center rounded-md border border-pine px-6 py-3 text-sm font-semibold text-pine hover:bg-pine hover:text-surface focus-visible:outline-primary">
