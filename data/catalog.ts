@@ -24,6 +24,36 @@ export function getProductsByCategory(categorySlug: CategorySlug): readonly Prod
   return products.filter((product) => product.category === categorySlug);
 }
 
+export interface ProductFilters {
+  category?: string;
+  search?: string;
+}
+
+export function getProductsByFilters({ category, search }: ProductFilters): readonly Product[] {
+  const selectedCategory = category ? getCategoryBySlug(category) : undefined;
+  const normalizedSearch = search?.trim().toLocaleLowerCase() ?? "";
+
+  return products.filter((product) => {
+    if (selectedCategory && product.category !== selectedCategory.slug) {
+      return false;
+    }
+
+    if (!normalizedSearch) {
+      return true;
+    }
+
+    const categoryName = getCategoryBySlug(product.category)?.name ?? "";
+    const enquiryTerms = [
+      product.bulkOrder ? "bulk" : "",
+      product.returnGift ? "return gift" : "",
+      product.corporateGift ? "corporate" : "",
+    ];
+    return [product.name, product.description, product.category, categoryName, ...enquiryTerms].some((value) =>
+      value.toLocaleLowerCase().includes(normalizedSearch),
+    );
+  });
+}
+
 export function getFeaturedProducts(): readonly Product[] {
   return products.filter((product) => product.featured);
 }
