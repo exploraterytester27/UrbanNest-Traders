@@ -3,10 +3,6 @@ import { siteConfig } from "@/config/site";
 
 const primaryNavigation = siteConfig.navigation.slice(0, -1);
 const quoteLink = siteConfig.navigation.at(-1);
-const legalLinks = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
-] as const;
 
 export function Footer() {
   return (
@@ -66,24 +62,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-background/20 pt-6 text-sm text-background/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 border-t border-background/20 pt-6 text-sm text-background/70">
           <p>
             © {new Date().getFullYear()} {siteConfig.business.name}. All rights reserved.
           </p>
-          <nav aria-label="Legal navigation">
-            <ul className="flex gap-5">
-              {legalLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="rounded-sm hover:text-surface focus-visible:outline-surface"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </div>
     </footer>

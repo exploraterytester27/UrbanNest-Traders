@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { NavigationItem } from "@/config/site";
 
@@ -9,8 +10,21 @@ interface MobileNavigationProps {
   quoteLink?: NavigationItem;
 }
 
+function isCurrentPage(href: NavigationItem["href"], pathname: string): boolean {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  if (href === "/products") {
+    return pathname.startsWith("/products");
+  }
+
+  return false;
+}
+
 export function MobileNavigation({ navigation, quoteLink }: MobileNavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
   const wasOpenRef = useRef(false);
@@ -66,18 +80,23 @@ export function MobileNavigation({ navigation, quoteLink }: MobileNavigationProp
           className="absolute inset-x-0 top-full border-y border-border bg-background px-5 py-6 shadow-sm"
         >
           <ul className="space-y-1">
-            {navigation.map((item, index) => (
-              <li key={item.href}>
+            {navigation.map((item, index) => {
+              const isCurrent = isCurrentPage(item.href, pathname);
+
+              return (
+                <li key={item.href}>
                 <Link
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={item.href}
-                  className="block rounded-md px-3 py-3 text-sm font-medium text-text hover:bg-surface focus-visible:outline-primary"
+                  aria-current={isCurrent ? "page" : undefined}
+                  className={`block rounded-md px-3 py-3 text-sm font-medium text-text hover:bg-surface focus-visible:outline-primary ${isCurrent ? "font-semibold underline decoration-primary decoration-2 underline-offset-4" : ""}`}
                   onClick={closeMenu}
                 >
                   {item.label}
                 </Link>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
 
           {quoteLink ? (

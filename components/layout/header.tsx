@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { MobileNavigation } from "@/components/layout/mobile-navigation";
+import { PrimaryNavigation } from "@/components/layout/primary-navigation";
 
 const primaryNavigation = siteConfig.navigation.slice(0, -1);
 const quoteLink = siteConfig.navigation.at(-1);
@@ -36,17 +37,7 @@ export function Header() {
           )}
         </Link>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-1 lg:flex">
-          {primaryNavigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-text hover:text-pine focus-visible:outline-primary"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <PrimaryNavigation navigation={primaryNavigation} />
 
         <div className="hidden items-center lg:flex">
           {quoteLink ? (

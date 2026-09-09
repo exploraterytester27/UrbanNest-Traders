@@ -33,7 +33,7 @@ export function ContactSection() {
               <p className="mt-2 text-sm text-text">{contact.location}</p>
             </div>
           </address>
-          <Link href="/contact" className="mt-8 inline-flex text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:outline-primary">
+          <Link href="/#contact" className="mt-8 inline-flex text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:outline-primary">
             Visit the contact page <span className="ml-2" aria-hidden="true">→</span>
           </Link>
         </div>

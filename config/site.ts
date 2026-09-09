@@ -1,9 +1,9 @@
 export type SiteRoute =
   | "/"
   | "/products"
-  | "/bulk-corporate"
-  | "/about"
-  | "/contact"
+  | "/#categories"
+  | "/#about"
+  | "/#contact"
   | "/request-a-quote";
 
 export interface NavigationItem {
@@ -60,9 +60,9 @@ export const siteConfig = {
   navigation: [
     { label: "Home", href: "/" },
     { label: "Products", href: "/products" },
-    { label: "Bulk & Corporate", href: "/bulk-corporate" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Categories", href: "/#categories" },
+    { label: "About", href: "/#about" },
+    { label: "Contact", href: "/#contact" },
     { label: "Request a Quote", href: "/request-a-quote" },
   ],
 } as const satisfies SiteConfiguration;
