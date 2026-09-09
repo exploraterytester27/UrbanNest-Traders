@@ -21,7 +21,7 @@ export function getProductBySlug(slug: string): Product | undefined {
 }
 
 export function getProductsByCategory(categorySlug: CategorySlug): readonly Product[] {
-  return products.filter((product) => product.categorySlug === categorySlug);
+  return products.filter((product) => product.category === categorySlug);
 }
 
 export function getFeaturedProducts(): readonly Product[] {

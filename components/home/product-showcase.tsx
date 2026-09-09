@@ -22,7 +22,7 @@ export function ProductShowcase() {
               <div className="p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">Featured concept</p>
                 <h3 className="mt-3 text-2xl text-pine group-hover:text-primary">{product.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{product.shortDescription}</p>
+                <p className="mt-3 text-sm leading-6 text-muted">{product.description}</p>
                 <Link href={`/products/${product.slug}`} className="mt-5 inline-flex text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:outline-primary">
                   View details <span className="ml-2" aria-hidden="true">→</span>
                 </Link>

@@ -1,15 +1,12 @@
 export type CategorySlug =
-  | "water-bottles"
-  | "insulated-bottles"
-  | "lunch-boxes"
-  | "travel-bags"
-  | "handbags"
-  | "purses"
-  | "vanity-boxes"
-  | "gift-sets-return-gifts"
-  | "kitchen-lifestyle-accessories";
+  | "bags"
+  | "bottles"
+  | "gifts-storage"
+  | "kids"
+  | "kitchen"
+  | "gifts";
 
-export type LocalImagePath = `/images/${string}`;
+export type LocalImagePath = `/products/${string}`;
 
 export interface SeoMetadata {
   title: string;
@@ -23,22 +20,15 @@ export interface Category {
   image: LocalImagePath;
 }
 
-export interface ProductVariant {
-  label: string;
-  values: readonly string[];
-}
-
 export interface Product {
   id: string;
-  slug: string;
   name: string;
-  shortDescription: string;
+  slug: string;
+  category: CategorySlug;
   description: string;
-  categorySlug: CategorySlug;
   images: readonly LocalImagePath[];
   featured: boolean;
-  suitableFor: readonly string[];
-  keyFeatures: readonly string[];
-  variants?: readonly ProductVariant[];
-  seo: SeoMetadata;
+  bulkOrder: boolean;
+  returnGift: boolean;
+  corporateGift: boolean;
 }
