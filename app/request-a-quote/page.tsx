@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ProductEnquiryForm } from "@/components/catalog/product-enquiry-form";
+import { siteConfig } from "@/config/site";
 import { getProductBySlug } from "@/data/catalog";
 
 export const metadata: Metadata = {
@@ -29,7 +30,10 @@ export default async function RequestAQuotePage({ searchParams }: RequestAQuoteP
           <h1 id="quote-page-title" className="mt-4 text-4xl text-text sm:text-5xl">Start a product enquiry.</h1>
           <p className="mt-5 text-base leading-7 text-muted sm:text-lg">Provide the essentials below. The selected product is carried into the form automatically when you start from a product page.</p>
           <div className="mt-10">
-            <ProductEnquiryForm product={product} />
+            <ProductEnquiryForm
+              product={product}
+              whatsAppNumber={process.env.WHATSAPP_NUMBER ?? siteConfig.contact.whatsAppNumber}
+            />
           </div>
         </div>
       </div>

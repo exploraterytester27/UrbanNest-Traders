@@ -5,6 +5,7 @@ import type { Product } from "@/types/catalog";
 
 interface ProductEnquiryFormProps {
   product?: Product;
+  whatsAppNumber: string;
 }
 
 type FormValues = {
@@ -27,15 +28,17 @@ const initialValues: FormValues = {
   message: "",
 };
 
-export function ProductEnquiryForm({ product }: ProductEnquiryFormProps) {
+export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFormProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [whatsAppUrl, setWhatsAppUrl] = useState<string | null>(null);
+  const [deliveryError, setDeliveryError] = useState<string | null>(null);
 
   const updateValue = (field: keyof FormValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined, contact: undefined }));
-    setSubmitted(false);
+    setWhatsAppUrl(null);
+    setDeliveryError(null);
   };
 
   const validate = (): FormErrors => {
@@ -67,10 +70,33 @@ export function ProductEnquiryForm({ product }: ProductEnquiryFormProps) {
     event.preventDefault();
     const nextErrors = validate();
     setErrors(nextErrors);
+    setWhatsAppUrl(null);
+    setDeliveryError(null);
 
-    if (Object.keys(nextErrors).length === 0) {
-      setSubmitted(true);
+    if (Object.keys(nextErrors).length > 0) {
+      return;
     }
+
+    const phoneNumber = whatsAppNumber.replace(/\D/g, "");
+
+    if (phoneNumber.length < 8) {
+      setDeliveryError("WhatsApp delivery is not configured yet. A verified business WhatsApp number is required before an enquiry can be sent.");
+      return;
+    }
+
+    const enquiryMessage = [
+      "UrbanNest Product Enquiry",
+      "",
+      `Product: ${product?.name ?? "General product enquiry"}`,
+      `Customer: ${values.name.trim()}`,
+      values.company.trim() ? `Company: ${values.company.trim()}` : null,
+      values.email.trim() ? `Email: ${values.email.trim()}` : null,
+      values.phone.trim() ? `Phone/WhatsApp: ${values.phone.trim()}` : null,
+      `Quantity: ${values.quantity.trim()}`,
+      values.message.trim() ? `Requirements: ${values.message.trim()}` : null,
+    ].filter((line): line is string => line !== null).join("\n");
+
+    setWhatsAppUrl(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(enquiryMessage)}`);
   };
 
   const fieldClassName = (field: keyof FormValues) =>
@@ -139,8 +165,16 @@ export function ProductEnquiryForm({ product }: ProductEnquiryFormProps) {
         <button type="submit" className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-primary px-7 py-3 text-sm font-semibold text-surface transition-colors hover:bg-primary-hover focus-visible:outline-primary sm:w-auto">
           Send Enquiry
         </button>
-        <p className="text-xs leading-5 text-muted">This form is currently a development preview and does not send or store an enquiry.</p>
-        {submitted ? <p className="text-sm font-semibold text-success" role="status">Your details passed validation. Submission delivery will be connected in a future step.</p> : null}
+        <p className="text-xs leading-5 text-muted">Your enquiry will open in WhatsApp for you to review and send. It is not stored by this website.</p>
+        {deliveryError ? <p className="text-sm text-error" role="alert">{deliveryError}</p> : null}
+        {whatsAppUrl ? (
+          <div className="grid gap-3" role="status">
+            <p className="text-sm font-semibold text-success">Your enquiry is ready. Review the details in WhatsApp and press Send there.</p>
+            <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-whatsapp px-7 py-3 text-sm font-semibold text-text hover:brightness-95 focus-visible:outline-primary sm:w-auto">
+              Open WhatsApp to send
+            </a>
+          </div>
+        ) : null}
       </div>
     </form>
   );
