@@ -6,7 +6,7 @@ export function Hero() {
     <section className="overflow-hidden border-b border-border bg-background" aria-labelledby="hero-title">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20 lg:px-10 lg:py-28">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">UrbanNest Traders</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">{siteConfig.business.name}</p>
           <h1 id="hero-title" className="mt-5 max-w-3xl text-5xl text-text sm:text-6xl lg:text-7xl">
             Everyday goods, chosen with intention.
           </h1>
@@ -54,7 +54,7 @@ export function Hero() {
               <p className="font-heading text-5xl leading-none text-background sm:text-7xl">Ready to discuss.</p>
             </div>
             <p className="max-w-xs text-sm leading-6 text-background/70">
-              A fictional catalogue foundation for meaningful product and quote conversations.
+              Browse the catalogue and start an enquiry.
             </p>
           </div>
         </div>

@@ -30,7 +30,7 @@ export function CategoryShowcase() {
               <CatalogVisual src={category.image} alt="" label={category.name} />
               <div className="px-3 pb-3 pt-5">
                 <h3 className="text-2xl text-pine group-hover:text-primary">{category.name}</h3>
-                <p className="mt-2 text-sm leading-6 text-muted">{category.shortDescription}</p>
+                <p className="mt-2 text-base leading-7 text-muted">{category.shortDescription}</p>
                 <span className="mt-5 inline-flex text-sm font-semibold text-primary">Explore category <span className="ml-2" aria-hidden="true">→</span></span>
               </div>
             </Link>

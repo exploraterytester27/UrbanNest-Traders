@@ -34,27 +34,25 @@ export interface SiteConfiguration {
   navigation: readonly NavigationItem[];
 }
 
-// Replace the clearly marked placeholders when real UrbanNest Traders details are available.
+// Replace the logo path with the approved Mallusha Enterprises logo asset when supplied.
 export const siteConfig = {
   business: {
-    name: "UrbanNest Traders",
-    tagline: "Thoughtful everyday goods for gifting and living.",
-    description:
-      "A fictional product catalogue and enquiry website for UrbanNest Traders.",
+    name: "Mallusha Enterprises",
+    tagline: "Products and enquiries",
+    description: "Mallusha Enterprises product catalogue and enquiry website.",
   },
   contact: {
-    phone: "[PHONE_NUMBER_TO_BE_CONFIRMED]",
-    whatsAppNumber: "[WHATSAPP_NUMBER_TO_BE_CONFIRMED]",
-    email: "[EMAIL_ADDRESS_TO_BE_CONFIRMED]",
-    location: "[LOCATION_TO_BE_CONFIRMED]",
+    phone: "73387 82287",
+    whatsAppNumber: "917338782287",
+    email: "mallushaenterprises1@gmail.com",
+    location: "No. 10, PVM Lephonix Garden, Madukkarai Market, Coimbatore - 641 105",
   },
   branding: {
-    logoPath: "/images/brand/urbannest-traders-logo.svg",
+    logoPath: "/images/brand/mallusha-enterprises-logo.svg",
   },
   seo: {
-    defaultTitle: "UrbanNest Traders | Product Catalogue & Enquiries",
-    defaultDescription:
-      "Explore the fictional UrbanNest Traders catalogue and send an enquiry for product or quote information.",
+    defaultTitle: "Mallusha Enterprises | Product Catalogue & Enquiries",
+    defaultDescription: "Explore the Mallusha Enterprises product catalogue and send an enquiry.",
     siteUrl: "https://example.com",
   },
   navigation: [

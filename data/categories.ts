@@ -3,9 +3,9 @@ import type { Category } from "@/types/catalog";
 // Product categories are kept separate from UI components so the catalogue can evolve independently.
 export const categories = [
   {
-    name: "Bags",
+    name: "Travel Bags & Pouches",
     slug: "bags",
-    shortDescription: "Totes, pouches, and carrying options for everyday and gifting enquiries.",
+    shortDescription: "Tote bags and pouch options for travel, gifting, and product enquiries.",
     image: "/products/bags/printed-tote-bags/printed-tote-bag-1.jpeg",
   },
   {
@@ -27,9 +27,9 @@ export const categories = [
     image: "/products/kids/kids-camera-keychain/kids-camera-keychain.jpeg",
   },
   {
-    name: "Kitchen",
+    name: "Kitchen Containers",
     slug: "kitchen",
-    shortDescription: "Kitchen storage products for everyday and business enquiries.",
+    shortDescription: "Kitchen container options for product enquiries.",
     image: "/products/kitchen/stainless-steel-kitchen-containers/stainless-steel-kitchen-containers.jpeg",
   },
   {

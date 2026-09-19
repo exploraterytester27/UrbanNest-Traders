@@ -25,7 +25,7 @@ export function ValueProposition() {
         <SectionHeading
           id="value-title"
           tone="inverse"
-          eyebrow="Why UrbanNest"
+          eyebrow="Mallusha Enterprises"
           title="A calmer way to find the right thing."
           description="The catalogue is designed to make product discovery feel straightforward, useful, and open to conversation."
         />
@@ -34,7 +34,7 @@ export function ValueProposition() {
             <div key={value.number} className="border-t border-background/25 pt-5">
               <span className="font-heading text-3xl text-[#e6b08f]">{value.number}</span>
               <h3 className="mt-8 text-2xl text-background">{value.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-background/70">{value.description}</p>
+              <p className="mt-4 text-base leading-7 text-background/70">{value.description}</p>
             </div>
           ))}
         </div>

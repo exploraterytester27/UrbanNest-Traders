@@ -14,19 +14,19 @@ export function AboutSection() {
         <div className="grid gap-8 sm:grid-cols-2 sm:gap-10">
           <div className="border-l-2 border-primary pl-6">
             <p className="font-heading text-2xl leading-tight text-pine">Thoughtful by design</p>
-            <p className="mt-4 text-sm leading-7 text-muted">We bring useful product ideas together with a calm, clear catalogue experience.</p>
+            <p className="mt-4 text-base leading-7 text-muted">We bring useful product ideas together with a calm, clear catalogue experience.</p>
           </div>
           <div className="border-l-2 border-[#d8c7b6] pl-6">
             <p className="font-heading text-2xl leading-tight text-pine">Easy to explore</p>
-            <p className="mt-4 text-sm leading-7 text-muted">Browse by category, discover a few favourites, and ask for the details you need.</p>
+            <p className="mt-4 text-base leading-7 text-muted">Browse by category, discover a few favourites, and ask for the details you need.</p>
           </div>
           <div className="border-l-2 border-[#d8c7b6] pl-6">
             <p className="font-heading text-2xl leading-tight text-pine">Made for conversations</p>
-            <p className="mt-4 text-sm leading-7 text-muted">Every enquiry is a starting point for a more useful product discussion.</p>
+            <p className="mt-4 text-base leading-7 text-muted">Every enquiry is a starting point for a more useful product discussion.</p>
           </div>
           <div className="border-l-2 border-primary pl-6">
             <p className="font-heading text-2xl leading-tight text-pine">Personal or business</p>
-            <p className="mt-4 text-sm leading-7 text-muted">From a considered gift to a larger requirement, the next step is simply to get in touch.</p>
+            <p className="mt-4 text-base leading-7 text-muted">From a considered gift to a larger requirement, the next step is simply to get in touch.</p>
           </div>
         </div>
       </div>

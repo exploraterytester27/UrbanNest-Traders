@@ -6,8 +6,8 @@ import { SectionHeading } from "@/components/home/section-heading";
 import { getCategories, getCategoryBySlug, getProductsByFilters } from "@/data/catalog";
 
 export const metadata: Metadata = {
-  title: "Products | UrbanNest Traders",
-  description: "Browse the UrbanNest Traders product catalogue and enquire about products for gifting and everyday use.",
+  title: "Products | Mallusha Enterprises",
+  description: "Browse the Mallusha Enterprises product catalogue and send an enquiry.",
 };
 
 type ProductsPageProps = {
@@ -32,7 +32,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           eyebrow="The catalogue"
           title={selectedCategory?.name ?? "Products for considered gifting and living."}
           description={
-            selectedCategory?.shortDescription ?? "Browse the current UrbanNest Traders product catalogue, then open a product to start an enquiry."
+            selectedCategory?.shortDescription ?? "Browse the Mallusha Enterprises product catalogue, then open a product to start an enquiry."
           }
         />
 

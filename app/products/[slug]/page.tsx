@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const product = getProductBySlug(slug);
 
   if (!product) {
-    return { title: "Product not found | UrbanNest Traders" };
+    return { title: "Product not found | Mallusha Enterprises" };
   }
 
   return {
-    title: `${product.name} | UrbanNest Traders`,
+    title: `${product.name} | Mallusha Enterprises`,
     description: product.description,
   };
 }

@@ -15,7 +15,7 @@ export function Footer() {
                 {siteConfig.business.name}
               </span>
             </Link>
-            <p className="mt-4 text-sm leading-6 text-background/80">
+            <p className="mt-4 text-base leading-7 text-background/80">
               {siteConfig.business.description}
             </p>
           </div>
@@ -28,7 +28,7 @@ export function Footer() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="rounded-sm text-sm text-background/80 hover:text-surface focus-visible:outline-surface"
+                      className="rounded-sm text-base text-background/80 hover:text-surface focus-visible:outline-surface"
                     >
                       {item.label}
                     </Link>
@@ -40,7 +40,7 @@ export function Footer() {
 
           <div>
             <h2 className="font-heading text-lg font-semibold">Contact</h2>
-            <address className="mt-4 space-y-2 text-sm not-italic text-background/80">
+            <address className="mt-4 space-y-2 text-base not-italic text-background/80">
               <p>{siteConfig.contact.phone}</p>
               <p>{siteConfig.contact.whatsAppNumber}</p>
               <p>{siteConfig.contact.email}</p>
@@ -50,7 +50,7 @@ export function Footer() {
 
           <div>
             <h2 className="font-heading text-lg font-semibold">Enquiries</h2>
-            <p className="mt-4 text-sm leading-6 text-background/80">{siteConfig.business.tagline}</p>
+            <p className="mt-4 text-base leading-7 text-background/80">{siteConfig.business.tagline}</p>
             {quoteLink ? (
               <Link
                 href={quoteLink.href}

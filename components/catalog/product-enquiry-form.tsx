@@ -31,13 +31,11 @@ const initialValues: FormValues = {
 export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFormProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const [whatsAppUrl, setWhatsAppUrl] = useState<string | null>(null);
   const [deliveryError, setDeliveryError] = useState<string | null>(null);
 
   const updateValue = (field: keyof FormValues, value: string) => {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined, contact: undefined }));
-    setWhatsAppUrl(null);
     setDeliveryError(null);
   };
 
@@ -70,7 +68,6 @@ export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFo
     event.preventDefault();
     const nextErrors = validate();
     setErrors(nextErrors);
-    setWhatsAppUrl(null);
     setDeliveryError(null);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -85,7 +82,7 @@ export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFo
     }
 
     const enquiryMessage = [
-      "UrbanNest Product Enquiry",
+      "Mallusha Enterprises Product Enquiry",
       "",
       `Product: ${product?.name ?? "General product enquiry"}`,
       `Customer: ${values.name.trim()}`,
@@ -96,7 +93,12 @@ export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFo
       values.message.trim() ? `Requirements: ${values.message.trim()}` : null,
     ].filter((line): line is string => line !== null).join("\n");
 
-    setWhatsAppUrl(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(enquiryMessage)}`);
+    const whatsAppUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(enquiryMessage)}`;
+    const whatsAppWindow = window.open(whatsAppUrl, "_blank", "noopener,noreferrer");
+
+    if (!whatsAppWindow) {
+      window.location.assign(whatsAppUrl);
+    }
   };
 
   const fieldClassName = (field: keyof FormValues) =>
@@ -110,7 +112,7 @@ export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFo
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Product enquiry</p>
         <h2 className="mt-3 text-3xl text-pine">Tell us what you need.</h2>
         <p className="mt-3 text-sm leading-6 text-muted">
-          Share a few details and the UrbanNest Traders team can review your enquiry.
+          Share a few details and the Mallusha Enterprises team can review your enquiry.
         </p>
       </div>
 
@@ -163,18 +165,10 @@ export function ProductEnquiryForm({ product, whatsAppNumber }: ProductEnquiryFo
 
       <div className="mt-7 flex flex-col items-start gap-4">
         <button type="submit" className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-primary px-7 py-3 text-sm font-semibold text-surface transition-colors hover:bg-primary-hover focus-visible:outline-primary sm:w-auto">
-          Send Enquiry
+          Send Enquiry on WhatsApp
         </button>
-        <p className="text-xs leading-5 text-muted">Your enquiry will open in WhatsApp for you to review and send. It is not stored by this website.</p>
+        <p className="text-sm leading-6 text-muted">WhatsApp will open with your enquiry ready to review and send. It is not stored by this website.</p>
         {deliveryError ? <p className="text-sm text-error" role="alert">{deliveryError}</p> : null}
-        {whatsAppUrl ? (
-          <div className="grid gap-3" role="status">
-            <p className="text-sm font-semibold text-success">Your enquiry is ready. Review the details in WhatsApp and press Send there.</p>
-            <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-whatsapp px-7 py-3 text-sm font-semibold text-text hover:brightness-95 focus-visible:outline-primary sm:w-auto">
-              Open WhatsApp to send
-            </a>
-          </div>
-        ) : null}
       </div>
     </form>
   );

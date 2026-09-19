@@ -25,7 +25,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {category?.name ?? "Catalogue"}
         </p>
         <h2 className="mt-3 text-2xl text-pine group-hover:text-primary">{product.name}</h2>
-        <p className="mt-3 text-sm leading-6 text-muted">{product.description}</p>
+        <p className="mt-3 text-base leading-7 text-muted">{product.description}</p>
         <Link
           href={`/products/${product.slug}`}
           className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-4 focus-visible:outline-primary"

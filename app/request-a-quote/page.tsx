@@ -5,8 +5,8 @@ import { siteConfig } from "@/config/site";
 import { getProductBySlug } from "@/data/catalog";
 
 export const metadata: Metadata = {
-  title: "Request a Quote | UrbanNest Traders",
-  description: "Share your product enquiry requirements with UrbanNest Traders.",
+  title: "Request a Quote | Mallusha Enterprises",
+  description: "Share your product enquiry requirements with Mallusha Enterprises.",
 };
 
 type RequestAQuotePageProps = {
