@@ -21,7 +21,7 @@ export function SectionHeading({
 
   return (
     <div className={`max-w-2xl ${alignment}`}>
-      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
+      <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">{eyebrow}</p>
       <h2 id={id} className={`mt-4 text-3xl sm:text-4xl lg:text-5xl ${headingColor}`}>{title}</h2>
       {description ? <p className={`mt-5 text-base leading-7 sm:text-lg ${descriptionColor}`}>{description}</p> : null}
     </div>

@@ -11,9 +11,9 @@ export function ProductShowcase() {
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <SectionHeading
           id="featured-title"
-          eyebrow="A few to begin with"
-          title="Small details, considered for everyday life."
-          description="Explore a selection of products for gifting, everyday use, and enquiries."
+          eyebrow="Featured Products"
+          title="Gifts, essentials and gift articles."
+          description="Explore a selection of products for personal celebrations and corporate gifting enquiries."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {products.slice(0, 4).map((product) => (

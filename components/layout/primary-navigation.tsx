@@ -34,7 +34,7 @@ export function PrimaryNavigation({ navigation }: PrimaryNavigationProps) {
             href={item.href}
             aria-current={isCurrent ? "page" : undefined}
             className={`rounded-md px-3 py-2 text-sm font-medium text-text hover:text-pine focus-visible:outline-primary ${
-              isCurrent ? "font-semibold underline decoration-primary decoration-2 underline-offset-4" : ""
+              isCurrent ? "font-semibold underline decoration-accent decoration-2 underline-offset-4" : ""
             }`}
           >
             {item.label}

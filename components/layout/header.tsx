@@ -20,15 +20,15 @@ export function Header() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex min-h-18 max-w-7xl items-center justify-between gap-5 px-5 py-4 sm:px-8 lg:px-10">
-        <Link href="/" className="shrink-0 rounded-sm focus-visible:outline-primary">
+      <div className="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-5 px-5 py-3 sm:px-8 lg:px-10">
+        <Link href="/" className="flex h-16 w-28 shrink-0 items-center rounded-sm focus-visible:outline-primary sm:h-20 sm:w-36 lg:h-24 lg:w-44">
           {hasLogoAsset ? (
             <Image
               src={siteConfig.branding.logoPath}
               alt={siteConfig.business.name}
-              width={180}
-              height={48}
-              className="h-9 w-auto object-contain"
+              width={1536}
+              height={1024}
+              className="h-full w-full object-contain"
             />
           ) : (
             <span className="font-heading text-xl font-semibold tracking-tight text-pine">

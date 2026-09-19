@@ -3,18 +3,18 @@ import { SectionHeading } from "@/components/home/section-heading";
 const values = [
   {
     number: "01",
-    title: "A clear starting point",
-    description: "A focused catalogue helps you move from a broad idea to a useful shortlist.",
+    title: "Return gifts",
+    description: "For weddings, birthdays, betrothals and other special occasions.",
   },
   {
     number: "02",
-    title: "Useful product context",
-    description: "Each concept is presented with the everyday moments and gifting conversations it may suit.",
+    title: "Corporate gifting",
+    description: "Customized gift options suitable for employees, clients or special occasions.",
   },
   {
     number: "03",
-    title: "A human next step",
-    description: "When you are ready, send an enquiry and continue the conversation around your requirement.",
+    title: "Practical and personalized",
+    description: "Helping customers choose practical, presentable and personalized gifts.",
   },
 ] as const;
 
@@ -26,13 +26,13 @@ export function ValueProposition() {
           id="value-title"
           tone="inverse"
           eyebrow="Mallusha Enterprises"
-          title="A calmer way to find the right thing."
-          description="The catalogue is designed to make product discovery feel straightforward, useful, and open to conversation."
+          title="Gifts for the moments that matter."
+          description="Explore gifting options for personal celebrations and corporate needs, then start an enquiry when you are ready."
         />
         <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
           {values.map((value) => (
             <div key={value.number} className="border-t border-background/25 pt-5">
-              <span className="font-heading text-3xl text-[#e6b08f]">{value.number}</span>
+              <span className="font-heading text-3xl text-accent-light">{value.number}</span>
               <h3 className="mt-8 text-2xl text-background">{value.title}</h3>
               <p className="mt-4 text-base leading-7 text-background/70">{value.description}</p>
             </div>

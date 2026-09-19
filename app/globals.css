@@ -4,9 +4,13 @@
   --color-background: #faf7f2;
   --color-surface: #ffffff;
   --color-border: #f1ebe1;
-  --color-primary: #c1532a;
-  --color-primary-hover: #a3421f;
-  --color-pine: #2f4b45;
+  --color-soft-beige: #f4ede3;
+  --color-pale-gold: #f8f1e6;
+  --color-primary: #1f2d47;
+  --color-primary-hover: #152137;
+  --color-pine: #1f2d47;
+  --color-accent: #9a6f18;
+  --color-accent-light: #d6ae5a;
   --color-text: #292420;
   --color-muted: #6b6259;
   --color-success: #3f7a54;
@@ -42,7 +46,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
   }
 }

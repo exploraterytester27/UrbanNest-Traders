@@ -89,7 +89,7 @@ export function MobileNavigation({ navigation, quoteLink }: MobileNavigationProp
                   ref={index === 0 ? firstLinkRef : undefined}
                   href={item.href}
                   aria-current={isCurrent ? "page" : undefined}
-                  className={`block rounded-md px-3 py-3 text-sm font-medium text-text hover:bg-surface focus-visible:outline-primary ${isCurrent ? "font-semibold underline decoration-primary decoration-2 underline-offset-4" : ""}`}
+                  className={`block rounded-md px-3 py-3 text-sm font-medium text-text hover:bg-surface focus-visible:outline-primary ${isCurrent ? "font-semibold underline decoration-accent decoration-2 underline-offset-4" : ""}`}
                   onClick={closeMenu}
                 >
                   {item.label}

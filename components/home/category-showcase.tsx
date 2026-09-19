@@ -7,14 +7,14 @@ export function CategoryShowcase() {
   const categories = getCategories();
 
   return (
-    <section id="categories" className="bg-background" aria-labelledby="category-title">
+    <section id="categories" className="bg-soft-beige" aria-labelledby="category-title">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             id="category-title"
-            eyebrow="Browse the collection"
-            title="A category for every kind of thoughtful gesture."
-            description="Start with the kind of everyday object, personal accessory, or gifting idea you have in mind."
+            eyebrow="Browse the Collection"
+            title="Gifts and essentials for every occasion."
+            description="Explore return gifts, kitchen essentials, handbags, vanity boxes, bottles and other gift articles."
           />
           <Link href="/products" className="shrink-0 text-sm font-semibold text-primary underline decoration-primary/30 underline-offset-8 hover:text-primary-hover focus-visible:outline-primary">
             View all products <span aria-hidden="true">↗</span>

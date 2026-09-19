@@ -41,10 +41,11 @@ export function Footer() {
           <div>
             <h2 className="font-heading text-lg font-semibold">Contact</h2>
             <address className="mt-4 space-y-2 text-base not-italic text-background/80">
-              <p>{siteConfig.contact.phone}</p>
-              <p>{siteConfig.contact.whatsAppNumber}</p>
-              <p>{siteConfig.contact.email}</p>
-              <p>{siteConfig.contact.location}</p>
+              <p><span className="mr-2 text-background/60">Phone</span><a href="tel:+917338782287" className="hover:text-surface focus-visible:outline-surface">{siteConfig.contact.phone}</a></p>
+              <p><span className="mr-2 text-background/60">WhatsApp</span><a href={`https://wa.me/${siteConfig.contact.whatsAppNumber}`} target="_blank" rel="noopener noreferrer" className="hover:text-surface focus-visible:outline-surface">{siteConfig.contact.whatsAppDisplay}</a></p>
+              <p><a href={`mailto:${siteConfig.contact.email}`} className="hover:text-surface focus-visible:outline-surface">{siteConfig.contact.email}</a></p>
+              <p className="whitespace-pre-line">{siteConfig.contact.location}</p>
+              <p><a href={siteConfig.contact.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-surface focus-visible:outline-surface">Instagram</a></p>
             </address>
           </div>
 
